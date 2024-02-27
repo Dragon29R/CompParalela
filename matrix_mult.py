@@ -58,7 +58,7 @@ match mode:
     case 2:
         LineByLineMult(matrixa, matrixb,ma,mb)
     case 3:
-        f = open("demofile2.txt", "w")
+        f = open("results.txt", "w")
         f.write("Test Mult Normal :\n")
         for i in range(600,3001,400):
             print("current size:" + str(i))
