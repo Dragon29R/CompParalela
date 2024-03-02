@@ -20,8 +20,12 @@ def LineByLineMult(matrixA,matrixB,ma,mb):
     matrixc = [[0.0 for _ in range(ma)] for _ in range(ma)]
     for i in range(ma):
         for k in range(ma):
+            aiK = matrixA[i][k] #cache
+            matrixBk = matrixB[k]
+            columnCache = matrixc[i]
             for j in range(mb):
-                matrixc[i][j]  += matrixA[i][k] * matrixB[k][j]
+                columnCache[j]  +=  aiK* matrixBk[j]
+            matrixc[i] = columnCache
     for i in range(10):
         print(matrixc[0][i], end=" ")
     print()
