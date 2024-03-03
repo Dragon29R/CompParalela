@@ -159,17 +159,16 @@ void OnMultBlock(int m_ar, int m_br, int bkSize)
         for (j_blk = 0; j_blk < m_br; j_blk += bkSize) {
             for (k_blk = 0; k_blk < m_ar; k_blk += bkSize) {
                 for (i = i_blk; i < min(i_blk + bkSize, m_ar); i++) {
-                    for (j = j_blk; j < min(j_blk + bkSize, m_br); j++) {
-                        temp = 0;
-                        for (k = k_blk; k < min(k_blk + bkSize, m_ar); k++) {
-                            temp += pha[i * m_ar + k] * phb[k * m_br + j];
+                    for( k=k_blk; k<min(k_blk + bkSize, m_ar); k++) {
+                        for (j = j_blk; j < min(j_blk + bkSize, m_br); j++) {
+                            phc[i*m_ar+j] += pha[i*m_ar+k] * phb[k*m_br+j];
                         }
-                        phc[i * m_ar + j] += temp;
                     }
                 }
             }
         }
     }
+
 
 
 	Time2 = clock();
